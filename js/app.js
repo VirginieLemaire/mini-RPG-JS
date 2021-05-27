@@ -30,7 +30,14 @@ var app = {};
       }
     }
   }
-  app.init= function () {
+  app.init = function () {
     console.log(this.drawBoard());
+  }
+  app.clearBoard = function() {
+    document.getElementById('board').removeChild();
+  }
+  app.redrawBoard = function(){
+    app.clearBoard();
+    app.drawBoard();
   }
 app.init();
