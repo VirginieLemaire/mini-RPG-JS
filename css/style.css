@@ -1,5 +1,8 @@
 body {
   background: #ddd;
+  display: flex;
+  justify-content: center;
+  align-content: center;
 }
 
 .player {
@@ -13,14 +16,18 @@ body {
 }
 
 .row {
-  background-color: #fff;
   display: flex;
   justify-content: center;
   align-content: center;
 }
 
 .cell {
+  background-color: #fff;
   width: 70px;
   height: 70px;
   border: .1em solid #000000;
+}
+
+.targetCell {
+  background-color: green;
 }
