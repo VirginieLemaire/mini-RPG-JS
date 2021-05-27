@@ -13,16 +13,14 @@ body {
 }
 
 .row {
-  width: 100px;
-  height: 100px;
-  background-color: aquamarine;
-  border: .3em solid rgb(255, 0, 212);
+  background-color: #fff;
   display: flex;
+  justify-content: center;
+  align-content: center;
 }
 
 .cell {
-  width: 20px;
-  height: 20px;
-  background-color: blue;
-  border: .3em solid rgb(171, 171, 197);
+  width: 70px;
+  height: 70px;
+  border: .1em solid #000000;
 }
