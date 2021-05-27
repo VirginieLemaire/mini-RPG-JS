@@ -34,7 +34,7 @@ var app = {};
     console.log(this.drawBoard());
   }
   app.clearBoard = function() {
-    document.getElementById('board').removeChild();
+    document.getElementById('board').textContent= '';
   }
   app.redrawBoard = function(){
     app.clearBoard();
