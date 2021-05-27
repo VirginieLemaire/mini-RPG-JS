@@ -11,3 +11,18 @@ body {
 
   margin: 20px;
 }
+
+.row {
+  width: 100px;
+  height: 100px;
+  background-color: aquamarine;
+  border: .3em solid rgb(255, 0, 212);
+  display: flex;
+}
+
+.cell {
+  width: 20px;
+  height: 20px;
+  background-color: blue;
+  border: .3em solid rgb(171, 171, 197);
+}
