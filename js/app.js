@@ -1,6 +1,6 @@
 const app = {
-  nbRows : 4,
-  nbCells : 6,
+  nbRows : 4,//axe y
+  nbCells : 6, //axe x
   board : document.getElementById(`board`),
 
   player : { //le joueur
@@ -56,7 +56,7 @@ const app = {
       app.player.direction = `bottom`;
       break;
     case `bottom` :
-      app.player.direction = `up`;
+      app.player.direction = `right`;
       break;
     } 
   },
@@ -81,16 +81,16 @@ const app = {
   moveForward : () => {
     switch (app.player.direction) {
     case `right` :
-      app.player.x++;
+      if (app.player.x<(app.nbCells-1)) app.player.x++;
       break;
     case `bottom` :
-      app.player.y++;
+      if (app.player.y<(app.nbRows-1)) app.player.y++;
       break;
     case `up` :
-      app.player.y--;
+      if (app.player.y>0) app.player.y--;
       break;
     case `left` :
-      app.player.x--;
+      if (app.player.x>0) app.player.x--;
       break;
     }
   },
