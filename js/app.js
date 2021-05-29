@@ -25,8 +25,9 @@ const app = {
         row.appendChild(cell);
         if (j === app.targetCell.x && i === app.targetCell.y) {
           cell.classList.add(`targetCell`);
-        } else if (j === app.player.x && i === app.player.y) {
-          let playerIn = document.createElement(`div`);
+        } 
+        if (j === app.player.x && i === app.player.y) {
+          const playerIn = document.createElement(`div`);
           playerIn.classList.add(`player`);
           playerIn.classList.add(`player--${app.player.direction}`);
           cell.appendChild(playerIn);
@@ -44,7 +45,7 @@ const app = {
     app.drawBoard();
   },
 
-  turnLeft : () => {
+  /*turnLeft : () => {
     switch(app.player.direction) {
     case `right` :
       app.player.direction = `up`;
@@ -59,6 +60,7 @@ const app = {
       app.player.direction = `right`;
       break;
     } 
+    app.redrawBoard();
   },
 
   turnRight : () => {
@@ -76,7 +78,8 @@ const app = {
       app.player.direction = `right`;
       break;
     } 
-  },
+    app.redrawBoard();
+  },*/
 
   moveForward : () => {
     switch (app.player.direction) {
@@ -93,6 +96,43 @@ const app = {
       if (app.player.x>0) app.player.x--;
       break;
     }
+    app.redrawBoard();
+  },
+
+  listenKeyboardEvents : () => {
+    document.addEventListener(`keyup`, function(event){
+      console.log(event);
+      switch (event.code) {
+      case `ArrowRight` :
+        if (app.player.direction === `right`)  app.moveForward();
+        else {
+          app.player.direction = `right`;
+          app.moveForward();
+        }
+        break;
+      case `ArrowDown` :
+        if (app.player.direction === `bottom`)  app.moveForward();
+        else {
+          app.player.direction = `bottom`;
+          app.moveForward();
+        }
+        break;
+      case `ArrowLeft` :
+        if (app.player.direction === `left`)  app.moveForward();
+        else {
+          app.player.direction = `left`;
+          app.moveForward();
+        }
+        break;
+      case `ArrowUp` :
+        if (app.player.direction === `up`)  app.moveForward();
+        else {
+          app.player.direction = `up`;
+          app.moveForward();
+        }
+        break;  
+      }
+    });
   },
 
   test : () => {
@@ -102,6 +142,7 @@ const app = {
   
   init : () => {
     console.log(app.drawBoard());
+    app.listenKeyboardEvents();
   },
 };
 
