@@ -78,6 +78,23 @@ const app = {
     } 
   },
 
+  moveForward : () => {
+    switch (app.player.direction) {
+    case `right` :
+      app.player.direction.x++;
+      break;
+    case `bottom` :
+      app.player.direction.y++;
+      break;
+    case `up` :
+      app.player.direction.y--;
+      break;
+    case `left` :
+      app.player.direction.x--;
+      break;
+    }
+  },
+
   test : () => {
     console.log(app.player.direction);
     app.redrawBoard();
@@ -89,4 +106,3 @@ const app = {
 };
 
 document.addEventListener(`DOMContentLoaded`,app.init);
-//pour la partie moveforward j'ai envie de tester les boucles for ou do...while
