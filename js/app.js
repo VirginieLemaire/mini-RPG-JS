@@ -28,6 +28,7 @@ const app = {
         } else if (j === app.player.x && i === app.player.y) {
           let playerIn = document.createElement(`div`);
           playerIn.classList.add(`player`);
+          playerIn.classList.add(`player--${app.player.direction}`);
           cell.appendChild(playerIn);
         } 
       }
@@ -41,6 +42,45 @@ const app = {
   redrawBoard : () => {
     app.clearBoard();
     app.drawBoard();
+  },
+
+  turnLeft : () => {
+    switch(app.player.direction) {
+    case `right` :
+      app.player.direction = `up`;
+      break;
+    case `up` :
+      app.player.direction = `left`;
+      break;
+    case `left` :
+      app.player.direction = `bottom`;
+      break;
+    case `bottom` :
+      app.player.direction = `up`;
+      break;
+    } 
+  },
+
+  turnRight : () => {
+    switch(app.player.direction) {
+    case `right` :
+      app.player.direction = `bottom`;
+      break;
+    case `bottom` :
+      app.player.direction = `left`;
+      break;
+    case `up` :
+      app.player.direction = `up`;
+      break;
+    case `left` :
+      app.player.direction = `right`;
+      break;
+    } 
+  },
+
+  test : () => {
+    console.log(app.player.direction);
+    app.redrawBoard();
   },
   
   init : () => {
