@@ -2,6 +2,7 @@ const app = {
   nbRows : 4,//axe y
   nbCells : 6, //axe x
   board : document.getElementById(`board`),
+  gameOver : false,
 
   player : { //le joueur
     x: 0, 
@@ -34,6 +35,7 @@ const app = {
         } 
       }
     }
+    app.isGameOver();
   },
 
   clearBoard : () => {
@@ -82,6 +84,7 @@ const app = {
   },*/
 
   moveForward : () => {
+    if(app.gameOver) return;
     switch (app.player.direction) {
     case `right` :
       if (app.player.x<(app.nbCells-1)) app.player.x++;
@@ -100,6 +103,7 @@ const app = {
   },
 
   listenKeyboardEvents : () => {
+    if (app.gameOver) return;
     document.addEventListener(`keyup`, function(event){
       console.log(event);
       switch (event.code) {
@@ -135,13 +139,20 @@ const app = {
     });
   },
 
-  test : () => {
-    console.log(app.player.direction);
-    app.redrawBoard();
+  win : () => {
+    alert(`Bravo, vous avez gagné`);
+  },
+
+  isGameOver : () => {
+    if (app.player.x === app.targetCell.x && app.player.y === app.targetCell.y) {
+      setTimeout(app.win,100);
+      app.gameOver = true;
+    }
   },
   
   init : () => {
-    console.log(app.drawBoard());
+    console.log(`init !`);
+    app.drawBoard();
     app.listenKeyboardEvents();
   },
 };
