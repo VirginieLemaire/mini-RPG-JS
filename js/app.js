@@ -81,16 +81,16 @@ const app = {
   moveForward : () => {
     switch (app.player.direction) {
     case `right` :
-      app.player.direction.x++;
+      app.player.x++;
       break;
     case `bottom` :
-      app.player.direction.y++;
+      app.player.y++;
       break;
     case `up` :
-      app.player.direction.y--;
+      app.player.y--;
       break;
     case `left` :
-      app.player.direction.x--;
+      app.player.x--;
       break;
     }
   },
