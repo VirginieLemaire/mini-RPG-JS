@@ -3,6 +3,7 @@ const app = {
   nbCells : 6, //axe x
   board : document.getElementById(`board`),
   gameOver : false,
+  nbMoves : 0, //initialisation nb de mouvements
 
   player : { //le joueur
     x: 0, 
@@ -47,43 +48,8 @@ const app = {
     app.drawBoard();
   },
 
-  /*turnLeft : () => {
-    switch(app.player.direction) {
-    case `right` :
-      app.player.direction = `up`;
-      break;
-    case `up` :
-      app.player.direction = `left`;
-      break;
-    case `left` :
-      app.player.direction = `bottom`;
-      break;
-    case `bottom` :
-      app.player.direction = `right`;
-      break;
-    } 
-    app.redrawBoard();
-  },
-
-  turnRight : () => {
-    switch(app.player.direction) {
-    case `right` :
-      app.player.direction = `bottom`;
-      break;
-    case `bottom` :
-      app.player.direction = `left`;
-      break;
-    case `up` :
-      app.player.direction = `up`;
-      break;
-    case `left` :
-      app.player.direction = `right`;
-      break;
-    } 
-    app.redrawBoard();
-  },*/
-
   moveForward : () => {
+    app.nbMoves++;
     if(app.gameOver) return;
     switch (app.player.direction) {
     case `right` :
@@ -140,7 +106,7 @@ const app = {
   },
 
   win : () => {
-    alert(`Bravo, vous avez gagné`);
+    alert(`Bravo, vous avez atteint la cible en ${app.nbMoves} mouvements`);
   },
 
   isGameOver : () => {
