@@ -10,6 +10,10 @@ body {
   font-family: 'Iceland', cursive;
 }
 
+h2, p {
+  padding-left: 1rem;
+}
+
 header {
   text-align: center;
   color: #232b23;
@@ -24,6 +28,7 @@ main {
 #instructions {
   width: 30%;
   background-color: rgba(85, 107, 47, 33%);
+  border-radius: 0.5rem;
 }
 
 button {
@@ -60,6 +65,9 @@ button {
 .player--bottom {
   background-position-y: 0px;
 }
+.player--hidden {
+  display: none;
+}
 
 .row {
   display: flex;
@@ -76,10 +84,18 @@ button {
 
 .targetCell {
   background-color: rgb(3, 31, 15);
-  background-image: url('https://openclipart.org/image/400px/193050');
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
+}
+.chest {
+  width: 32px;
+  height: 32px;
+  background-image: url('../img/chest2.png');
+  /*border-style: solid;
+  border-width: 15px 0 15px 35px;
+  border-color: transparent transparent transparent blue;*/
+  margin: 20px;
+}
+.chest--open {
+  background-position-x: 32px;
 }
 
 @media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape)  {

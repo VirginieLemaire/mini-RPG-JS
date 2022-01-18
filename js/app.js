@@ -37,12 +37,15 @@ const app = {
         row.appendChild(cell);
         if (j === app.targetCell.x && i === app.targetCell.y) {
           cell.classList.add(`targetCell`);
+          app.chest = document.createElement(`div`);
+          app.chest.classList.add('chest');
+          cell.appendChild(app.chest);
         } 
         if (j === app.player.x && i === app.player.y) {
-          const playerIn = document.createElement(`div`);
-          playerIn.classList.add(`player`);
-          playerIn.classList.add(`player--${app.player.direction}`);
-          cell.appendChild(playerIn);
+          app.playerIn = document.createElement(`div`);
+          app.playerIn.classList.add(`player`);
+          app.playerIn.classList.add(`player--${app.player.direction}`);
+          cell.appendChild(app.playerIn);
         } 
       }
     }
@@ -122,8 +125,10 @@ const app = {
 
   isGameOver : () => {
     if (app.player.x === app.targetCell.x && app.player.y === app.targetCell.y) {
-      setTimeout(app.win,100);
+      app.chest.classList.add('chest--open');
+      app.playerIn.classList.add('player--hidden');
       app.gameOver = true;
+      setTimeout(app.win,100);
     }
   },
   
