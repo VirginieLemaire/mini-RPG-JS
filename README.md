@@ -1,4 +1,4 @@
-# Mini RPG JavaSCript
+# Mini RPG JavaScript
 
 Ce projet a été réalisé pendant ma 2ème semaine de découverte JavaScript en cours de formation.
 Il s'agit de déplacer un personnage sur une carte pour atteindre un trésor, sans prétention de mise en forme particulière.
