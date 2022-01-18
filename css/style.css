@@ -1,9 +1,43 @@
 body {
-  background: #ddd;
+  background-image: url('https://www.est-energies.fr/wp-content/uploads/2015/03/fond-header-1200.png');
+  background-repeat: no-repeat;
+  background-size: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  align-content: center;
+  align-items: center;
+  font-family: 'Bungee Shade', cursive;
+  font-family: 'Iceland', cursive;
 }
+
+header {
+  text-align: center;
+  color: #232b23;
+  font-family: 'Bungee Shade', cursive;
+}
+
+main {
+  display: flex;
+  justify-content: space-between;
+}
+
+#instructions {
+  width: 30%;
+  background-color: rgba(85, 107, 47, 33%);
+}
+
+button {
+  border-radius : 0 10px 10px 0;
+  background-color : rgb(3, 31, 15);
+  color : white;
+  font-family: 'Iceland', cursive;
+  padding: .5em 1em;
+  font-size: large;
+}
+
+ p {
+  text-align: center;
+ }
 
 .player {
   width: 28px;
@@ -42,4 +76,12 @@ body {
 
 .targetCell {
   background-color: rgb(3, 31, 15);
+  background-image: url('https://openclipart.org/image/400px/193050');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape)  {
+
 }

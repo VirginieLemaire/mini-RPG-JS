@@ -4,6 +4,7 @@ const app = {
   board : document.getElementById(`board`),
   gameOver : false,
   nbMoves : 0, //initialisation nb de mouvements
+  footstep : new Audio (`https://opengameart.org/sites/default/files/grass.mp3`),
 
   player : { //le joueur
     x: 0, 
@@ -14,6 +15,15 @@ const app = {
   targetCell : { //case à atteindre
     x: 5,
     y: 3,
+  },
+  
+  playAgain : () =>{
+    const instr = document.getElementById(`instructions`);
+    const form =  document.createElement (`form`);
+    const btn = document.createElement(`button`);
+    btn.textContent = `Rejouer`;
+    instr.appendChild(form);
+    form.appendChild(btn);
   },
 
   drawBoard : () => {
@@ -50,6 +60,7 @@ const app = {
 
   moveForward : () => {
     app.nbMoves++;
+    app.footstep.play();
     if(app.gameOver) return;
     switch (app.player.direction) {
     case `right` :
@@ -120,6 +131,7 @@ const app = {
     console.log(`init !`);
     app.drawBoard();
     app.listenKeyboardEvents();
+    app.playAgain();
   },
 };
 
